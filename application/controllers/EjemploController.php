@@ -8,7 +8,7 @@ class EjemploController extends CI_Controller {
 
 	function index(){
 		$this->load->view('Ejemplo/Inicio');
-		//$this->output->cache(500);
+		$this->output->cache(5000);
 	}
 	public function consulta_compleja(){
 		$data['title'] = 'ci';
@@ -28,6 +28,7 @@ class EjemploController extends CI_Controller {
 		$this->pagination->initialize($config); //inicializamos la paginación		
 		$datos['Personas'] = $this->EjemploModel->consulta_compleja($config['per_page'],$this->uri->segment(3));
     	$this->load->view('Ejemplo/consulta_compleja', $datos);
+    	$this->output->cache(5000);
 	}
 	// public function consulta_simple(){
 	// 	$datos['departments'] = $this->EjemploModel->consulta_simple();
@@ -51,6 +52,7 @@ class EjemploController extends CI_Controller {
 		$this->pagination->initialize($config); //inicializamos la paginación		
 		$datos['departments'] = $this->EjemploModel->consulta_simple($config['per_page'],$this->uri->segment(3));
     	$this->load->view('Ejemplo/consulta_simple', $datos);
+    	$this->output->cache(5000);
 	}
 	public function consulta_media(){
 		$data['title'] = 'ci2';
@@ -72,6 +74,7 @@ class EjemploController extends CI_Controller {
 
 		//$datos['personasF'] = $this->EjemploModel->consulta_media();
 		$this->load->view('Ejemplo/consulta_media', $datos);
+		$this->output->cache(5000);
 	}
 	// public function consulta_compleja(){
 	// 	$datos['Personas'] = $this->EjemploModel->consulta_compleja();
