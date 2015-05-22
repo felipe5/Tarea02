@@ -1,0 +1,8 @@
+a:2:{s:6:"expire";i:1432618308;s:7:"headers";a:0:{}}ENDCI---><!DOCTYPE html>
+<html>
+	<body>
+		<a href="http://190.45.161.79/ci3_ci//index.php/ejemploController/consulta_simple">Consulta Simple</a><br>
+		<a href="http://190.45.161.79/ci3_ci//index.php/ejemploController/consulta_media">Consulta Mediana</a><br>
+		<a href="http://190.45.161.79/ci3_ci//index.php/ejemploController/consulta_compleja">Consulta Compleja</a>
+	</body>
+</html>

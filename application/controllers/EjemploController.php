@@ -3,7 +3,7 @@ class EjemploController extends CI_Controller {
 	function __construct(){//Agregada
 		parent::__construct();
 		$this->load->helper('url');//para que funcione el base_url().
-		$this->load->model('EjemploModel');
+		$this->load->model('ejemplomodel');
 	}
 
 	function index(){
@@ -15,7 +15,7 @@ class EjemploController extends CI_Controller {
 		$pages=100; //Número de registros mostrados por páginas
 		$this->load->library('pagination'); //Cargamos la librería de paginación
 		$config['base_url'] = base_url().'index.php/EjemploController/consulta_compleja/'; // parametro base de la aplicación, si tenemos un .htaccess nos evitamos el index.php
-		$config['total_rows'] = $this->EjemploModel->filas();//calcula el número de filas  
+		$config['total_rows'] = $this->ejemplomodel->filas();//calcula el número de filas  
 		$config['per_page'] = $pages; //Número de registros mostrados por páginas
         $config['num_links'] = 20; //Número de links mostrados en la paginación
  		$config['first_link'] = 'Primera';//primer link
@@ -26,12 +26,12 @@ class EjemploController extends CI_Controller {
 		$config['full_tag_open'] = '<div id="paginacion">';//el div que debemos maquetar
 		$config['full_tag_close'] = '</div>';//el cierre del div de la paginación
 		$this->pagination->initialize($config); //inicializamos la paginación		
-		$datos['Personas'] = $this->EjemploModel->consulta_compleja($config['per_page'],$this->uri->segment(3));
+		$datos['Personas'] = $this->ejemplomodel->consulta_compleja($config['per_page'],$this->uri->segment(3));
     	$this->load->view('Ejemplo/consulta_compleja', $datos);
     	$this->output->cache(5000);
 	}
 	// public function consulta_simple(){
-	// 	$datos['departments'] = $this->EjemploModel->consulta_simple();
+	// 	$datos['departments'] = $this->ejemplomodel->consulta_simple();
  //    	$this->load->view('Ejemplo/consulta_simple', $datos);
 	// }
 	public function consulta_simple(){
@@ -39,7 +39,7 @@ class EjemploController extends CI_Controller {
 		$pages=100; //Número de registros mostrados por páginas
 		$this->load->library('pagination'); //Cargamos la librería de paginación
 		$config['base_url'] = base_url().'index.php/EjemploController/consulta_simple/'; // parametro base de la aplicación, si tenemos un .htaccess nos evitamos el index.php
-		$config['total_rows'] = $this->EjemploModel->filas_simple();//calcula el número de filas  
+		$config['total_rows'] = $this->ejemplomodel->filas_simple();//calcula el número de filas  
 		$config['per_page'] = $pages; //Número de registros mostrados por páginas
         $config['num_links'] = 20; //Número de links mostrados en la paginación
  		$config['first_link'] = 'Primera';//primer link
@@ -50,7 +50,7 @@ class EjemploController extends CI_Controller {
 		$config['full_tag_open'] = '<div id="paginacion">';//el div que debemos maquetar
 		$config['full_tag_close'] = '</div>';//el cierre del div de la paginación
 		$this->pagination->initialize($config); //inicializamos la paginación		
-		$datos['departments'] = $this->EjemploModel->consulta_simple($config['per_page'],$this->uri->segment(3));
+		$datos['departments'] = $this->ejemplomodel->consulta_simple($config['per_page'],$this->uri->segment(3));
     	$this->load->view('Ejemplo/consulta_simple', $datos);
     	$this->output->cache(5000);
 	}
@@ -59,7 +59,7 @@ class EjemploController extends CI_Controller {
 		$pages=100; //Número de registros mostrados por páginas
 		$this->load->library('pagination'); //Cargamos la librería de paginación
 		$config['base_url'] = base_url().'index.php/EjemploController/consulta_media/';
-		$config['total_rows'] = $this->EjemploModel->filas_media();//calcula el número de filas  
+		$config['total_rows'] = $this->ejemplomodel->filas_media();//calcula el número de filas  
 		$config['per_page'] = $pages; //Número de registros mostrados por páginas
 		$config['num_links'] = 20; //Número de links mostrados en la paginación
  		$config['first_link'] = 'Primera';//primer link
@@ -70,14 +70,14 @@ class EjemploController extends CI_Controller {
 		$config['full_tag_open'] = '<div id="paginacion">';//el div que debemos maquetar
 		$config['full_tag_close'] = '</div>';//el cierre del div de la paginación
 		$this->pagination->initialize($config); //inicializamos la paginación	
-		$datos['personasF'] = $this->EjemploModel->consulta_media($config['per_page'],$this->uri->segment(3));
+		$datos['personasF'] = $this->ejemplomodel->consulta_media($config['per_page'],$this->uri->segment(3));
 
-		//$datos['personasF'] = $this->EjemploModel->consulta_media();
+		//$datos['personasF'] = $this->ejemplomodel->consulta_media();
 		$this->load->view('Ejemplo/consulta_media', $datos);
 		$this->output->cache(5000);
 	}
 	// public function consulta_compleja(){
-	// 	$datos['Personas'] = $this->EjemploModel->consulta_compleja();
+	// 	$datos['Personas'] = $this->ejemplomodel->consulta_compleja();
 	// 	$this->load->view('Ejemplo/consulta_compleja', $datos);
 	// }
 }?>
